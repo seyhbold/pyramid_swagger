@@ -550,7 +550,7 @@ def _build_swagger_20_schema_views(config):
         for schema_format in ['yaml', 'json']:
             route_name = 'pyramid_swagger.swagger20.api_docs.{0}.{1}'\
                 .format(ref_fname.replace('/', '.'), schema_format)
-            path = '/{0}.{1}'.format(ref_fname_parts[0], schema_format)
+            path = '{2}/{0}.{1}'.format(ref_fname_parts[0], schema_format, config.route_prefix)
             file_map[path] = ref_fname
             yield PyramidEndpoint(
                 path=path,
